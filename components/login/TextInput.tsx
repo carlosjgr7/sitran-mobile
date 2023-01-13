@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, TextInput } from 'react-native';
 //import { TextInput as Input } from 'react-native-paper';
 //import { theme } from '../core/theme';
 
-interface Props {}
+//interface Props {}
 
 export default function Input({ errorText, description, ...props }: any) {
 	return (

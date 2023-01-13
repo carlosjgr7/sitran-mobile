@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { ImageBackground, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Image, Text, View } from 'react-native';
 import Input from './TextInput';
 
-const bg = require('../../Images/login-background.jpeg');
+const bg = require('../../Images/fondoTranred.jpeg');
+const logo = require('../../Images/tranred-logo.png');
 
 const Login = (): JSX.Element => {
 	const [email, setEmail] = useState({ value: '', error: '' });
@@ -12,6 +13,7 @@ const Login = (): JSX.Element => {
 		<View style={styles.container}>
 			<ImageBackground source={bg} resizeMode='cover' style={styles.image}>
 				<View style={styles.container2}>
+					<Image style={styles.logo} resizeMode='contain' source={logo} />
 					<Text style={styles.title}>Sitran</Text>
 					<Text style={styles.subTitle}>Bienvenido a Tranred</Text>
 					<Input
@@ -67,6 +69,12 @@ const styles = StyleSheet.create({
 	image: {
 		flex: 1,
 		justifyContent: 'center',
+	},
+	logo: {
+		width: '100%',
+		height: 120,
+		// backgroundColor: '#fff',
+		// borderRadius: 10,
 	},
 });
 
