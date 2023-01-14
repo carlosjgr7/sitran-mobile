@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { ImageBackground, StyleSheet, Image, Text, View } from 'react-native';
+import { ImageBackground, Image, Text, View, TouchableHighlight } from 'react-native';
+import { styles } from './styles';
 import Input from './TextInput';
 
 const bg = require('../../Images/fondoTranred.jpeg');
@@ -9,6 +10,12 @@ const logo = require('../../Images/tranred-logo.png');
 const Login = (): JSX.Element => {
 	const [email, setEmail] = useState({ value: '', error: '' });
 	const [password, setPassword] = useState({ value: '', error: '' });
+
+	const handleLogin = () => {
+		console.log('email:', email);
+		console.log('pass:', password);
+	};
+
 	return (
 		<View style={styles.container}>
 			<ImageBackground source={bg} resizeMode='cover' style={styles.image}>
@@ -17,65 +24,42 @@ const Login = (): JSX.Element => {
 					<Text style={styles.title}>Sitran</Text>
 					<Text style={styles.subTitle}>Bienvenido a Tranred</Text>
 					<Input
-						label='Email'
+						secureTextEntry={false}
+						label='Login'
 						returnKeyType='next'
 						value={email.value}
 						onChangeText={(text: string) => setEmail({ value: text, error: '' })}
 						error={!!email.error}
 						errorText={email.error}
 						autoCapitalize='none'
+						placeholder='*********'
+						type='text'
 						autoCompleteType='email'
 						textContentType='emailAddress'
 						keyboardType='email-address'
 					/>
 					<Input
-						label='Email'
+						secureTextEntry={true}
+						label='Contrasena'
 						returnKeyType='next'
-						value={email.value}
-						onChangeText={(text: string) => setEmail({ value: text, error: '' })}
-						error={!!email.error}
-						errorText={email.error}
+						placeholder='*********'
+						value={password.value}
+						onChangeText={(text: string) => setPassword({ value: text, error: '' })}
+						error={!!password.error}
+						errorText={password.error}
 						autoCapitalize='none'
-						autoCompleteType='email'
-						textContentType='emailAddress'
-						keyboardType='email-address'
+						autoCompleteType='password'
+						textContentType='password'
+						keyboardType='password'
 					/>
-					<StatusBar style='auto' />
+					<TouchableHighlight onPress={handleLogin} style={styles.button} underlayColor='#fff'>
+						<Text style={styles.textButton}>Iniciar sesión</Text>
+					</TouchableHighlight>
+					{/* <StatusBar style='auto' /> */}
 				</View>
 			</ImageBackground>
 		</View>
 	);
 };
-
-const styles = StyleSheet.create({
-	container: {
-		flex: 1,
-	},
-	title: {
-		fontSize: 80,
-		color: '#fff',
-		fontWeight: 'bold',
-		fontFamily: 'Roboto',
-	},
-	subTitle: {
-		fontSize: 15,
-		color: '#000',
-	},
-	container2: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
-	},
-	image: {
-		flex: 1,
-		justifyContent: 'center',
-	},
-	logo: {
-		width: '100%',
-		height: 120,
-		// backgroundColor: '#fff',
-		// borderRadius: 10,
-	},
-});
 
 export default Login;

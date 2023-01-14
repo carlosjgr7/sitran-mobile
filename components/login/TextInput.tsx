@@ -8,7 +8,11 @@ import { View, StyleSheet, Text, TextInput } from 'react-native';
 export default function Input({ errorText, description, ...props }: any) {
 	return (
 		<>
-			<TextInput placeholder='jesus@gmail.com' style={styles.input} {...props} />
+			<TextInput
+				/////
+				style={styles.input}
+				{...props}
+			/>
 			{description && !errorText ? <Text style={styles.description}>{description}</Text> : null}
 			{errorText ? <Text style={styles.error}>{errorText}</Text> : null}
 		</>
@@ -20,9 +24,10 @@ const styles = StyleSheet.create({
 		//backgroundColor: theme.colors.surface,
 		// borderWidth: 1,
 		// borderColor: 'gray',
-		padding: 10,
+		paddingHorizontal: 30,
+		paddingVertical: 20,
 		height: 50,
-		width: '80%',
+		width: '70%',
 		marginTop: 20,
 		borderRadius: 30,
 		backgroundColor: '#fff',
