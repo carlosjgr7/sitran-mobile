@@ -1,7 +1,7 @@
-export const palette={
-    primary500: 'green',
-    white: '#FFFFFF',
-    buttonDisabled: 'gray',
-    blackDisabled: 'gray',
-    red: 'red',
-}
+export const palette = {
+	primary: '#37236a',
+	white: '#FFFFFF',
+	buttonDisabled: 'gray',
+	blackDisabled: 'gray',
+	red: 'red',
+};
