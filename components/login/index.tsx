@@ -20,9 +20,9 @@ const Login = (): JSX.Element => {
 		<View style={styles.container}>
 			<ImageBackground source={bg} resizeMode='cover' style={styles.image}>
 				<View style={styles.container2}>
-					<Image style={styles.logo} resizeMode='contain' source={logo} />
 					<Text style={styles.title}>Sitran</Text>
-					<Text style={styles.subTitle}>Bienvenido a Tranred</Text>
+					{/* <Text style={styles.subTitle}>Bienvenido a Tranred</Text> */}
+					{/* <Image style={styles.logo} resizeMode='contain' source={logo} /> */}
 					<Input
 						secureTextEntry={false}
 						label='Login'
@@ -52,10 +52,17 @@ const Login = (): JSX.Element => {
 						textContentType='password'
 						keyboardType='password'
 					/>
-					<TouchableHighlight onPress={handleLogin} style={styles.button} underlayColor='#fff'>
+					<TouchableHighlight
+						onPress={handleLogin}
+						style={styles.button}
+						underlayColor='#5f4f87'
+						//activeOpacity={0.9}
+					>
 						<Text style={styles.textButton}>Iniciar sesión</Text>
 					</TouchableHighlight>
-					{/* <StatusBar style='auto' /> */}
+					<View style={styles.logoContainer}>
+						<Image style={styles.logo} resizeMode='contain' source={logo} />
+					</View>
 				</View>
 			</ImageBackground>
 		</View>
