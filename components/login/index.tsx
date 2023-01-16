@@ -1,6 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { ImageBackground, StyleSheet, Image, Text, View } from 'react-native';
+import { ImageBackground, StyleSheet, Image,Button, Text, View, TouchableOpacity } from 'react-native';
+//import { Button } from 'react-native-paper';
 import Input from './TextInput';
 
 const bg = require('../../Images/fondoTranred.jpeg');
@@ -40,7 +41,7 @@ const Login = (): JSX.Element => {
 						textContentType='emailAddress'
 						keyboardType='email-address'
 					/>
-					<StatusBar style='auto' />
+					<TouchableOpacity style={{flex: 1, backgroundColor: 'blue', borderRadius: 5, height: 5 }}><Text>hola</Text></TouchableOpacity>
 				</View>
 			</ImageBackground>
 		</View>
